@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Charishma Saragadam | Data Analyst Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --navy: #0f1c2e;
+    --navy-light: #162438;
+    --teal: #0d9488;
+    --teal-light: #14b8a6;
+    --gold: #d4a843;
+    --cream: #f8f5f0;
+    --cream-dark: #ede8e0;
+    --text-dark: #0f1c2e;
+    --text-mid: #4a5568;
+    --text-light: #718096;
+    --white: #ffffff;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(15,28,46,0.97);
+    backdrop-filter: blur(10px);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 6%; height: 68px;
+    border-bottom: 1px solid rgba(13,148,136,0.3);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; color: var(--white);
+    letter-spacing: 0.5px;
+  }
+  .nav-logo span { color: var(--teal-light); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.75); text-decoration: none;
+    font-size: 0.9rem; font-weight: 500; letter-spacing: 0.3px;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--teal-light); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: grid; grid-template-columns: 1fr 1fr; align-items: center;
+    padding: 100px 8% 60px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(13,148,136,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -100px; left: 30%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(212,168,67,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-content { position: relative; z-index: 2; }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(13,148,136,0.15);
+    border: 1px solid rgba(13,148,136,0.4);
+    color: var(--teal-light);
+    padding: 6px 16px; border-radius: 100px;
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 1.5px;
+    text-transform: uppercase; margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--white); line-height: 1.15;
+    margin-bottom: 0.5rem;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  .hero-name span { color: var(--teal-light); }
+  .hero-title {
+    font-size: 1.1rem; color: var(--gold);
+    font-weight: 500; margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+  .hero-bio {
+    color: rgba(255,255,255,0.65);
+    line-height: 1.8; font-size: 0.95rem;
+    max-width: 500px; margin-bottom: 2.5rem;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+  .hero-bio .telugu {
+    color: rgba(255,255,255,0.45);
+    font-size: 0.85rem; margin-top: 0.5rem; display: block;
+  }
+  .hero-btns {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+  .btn-primary {
+    background: var(--teal);
+    color: white; padding: 12px 28px; border-radius: 6px;
+    text-decoration: none; font-weight: 600; font-size: 0.9rem;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--teal-light); transform: translateY(-2px); }
+  .btn-outline {
+    border: 1.5px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.8); padding: 12px 28px; border-radius: 6px;
+    text-decoration: none; font-weight: 500; font-size: 0.9rem;
+    transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--teal-light); color: var(--teal-light); transform: translateY(-2px); }
+  .hero-visual {
+    display: flex; justify-content: center; align-items: center;
+    position: relative; z-index: 2;
+    animation: fadeUp 0.6s 0.5s ease both;
+  }
+  .hero-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px; padding: 2rem;
+    backdrop-filter: blur(10px);
+    width: 300px;
+  }
+  .hero-card-stat {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .hero-card-stat:last-child { border-bottom: none; }
+  .stat-icon {
+    width: 42px; height: 42px; border-radius: 10px;
+    background: rgba(13,148,136,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+  }
+  .stat-info .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; color: var(--white); font-weight: 700;
+  }
+  .stat-info .stat-label {
+    font-size: 0.78rem; color: rgba(255,255,255,0.5);
+  }
+
+  /* ── SECTION COMMON ── */
+  section { padding: 90px 8%; }
+  .section-header { text-align: center; margin-bottom: 3.5rem; }
+  .section-tag {
+    display: inline-block;
+    color: var(--teal); font-size: 0.78rem;
+    font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    color: var(--text-dark); line-height: 1.2;
+  }
+  .section-title.light { color: var(--white); }
+  .section-sub {
+    color: var(--text-light); margin-top: 0.75rem;
+    font-size: 0.95rem;
+  }
+  .section-sub.light { color: rgba(255,255,255,0.5); }
+
+  /* ── ABOUT ── */
+  #about { background: var(--white); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;
+  }
+  .about-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-dark);
+  }
+  .about-text p {
+    color: var(--text-mid); line-height: 1.85; font-size: 0.95rem; margin-bottom: 1rem;
+  }
+  .about-text .telugu-note {
+    background: var(--cream); border-left: 3px solid var(--teal);
+    padding: 1rem 1.25rem; border-radius: 0 8px 8px 0;
+    color: var(--text-mid); font-size: 0.9rem; line-height: 1.7;
+    margin-top: 1.5rem;
+  }
+  .edu-timeline { position: relative; }
+  .edu-item {
+    display: flex; gap: 1.25rem; margin-bottom: 1.75rem;
+    position: relative;
+  }
+  .edu-dot {
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--teal); flex-shrink: 0;
+    margin-top: 5px; position: relative;
+  }
+  .edu-dot::after {
+    content: ''; position: absolute; left: 6px; top: 14px;
+    width: 2px; height: calc(100% + 26px);
+    background: rgba(13,148,136,0.2);
+  }
+  .edu-item:last-child .edu-dot::after { display: none; }
+  .edu-info h4 {
+    font-weight: 600; font-size: 0.95rem; color: var(--text-dark);
+  }
+  .edu-info p { color: var(--text-light); font-size: 0.85rem; margin-top: 2px; }
+  .edu-badge {
+    display: inline-block; margin-top: 4px;
+    background: rgba(13,148,136,0.1); color: var(--teal);
+    padding: 2px 10px; border-radius: 100px;
+    font-size: 0.78rem; font-weight: 600;
+  }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--navy); }
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .skill-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px; padding: 1.75rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .skill-card:hover { border-color: rgba(13,148,136,0.4); transform: translateY(-4px); }
+  .skill-card-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+  .skill-card h4 {
+    font-size: 0.85rem; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--teal-light);
+    margin-bottom: 1rem;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .skill-tag {
+    background: rgba(255,255,255,0.07);
+    color: rgba(255,255,255,0.75);
+    padding: 5px 12px; border-radius: 6px;
+    font-size: 0.82rem; font-weight: 500;
+  }
+
+  /* ── PROJECTS ── */
+  #projects { background: var(--cream); }
+  .projects-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2rem;
+  }
+  .project-card {
+    background: var(--white);
+    border-radius: 14px; overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    transition: transform 0.25s, box-shadow 0.25s;
+    display: flex; flex-direction: column;
+  }
+  .project-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+  .project-header {
+    padding: 1.75rem 1.75rem 1rem;
+    border-bottom: 1px solid var(--cream-dark);
+    display: flex; align-items: flex-start; gap: 1rem;
+  }
+  .project-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: linear-gradient(135deg, var(--teal), var(--navy));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; flex-shrink: 0;
+  }
+  .project-icon.gold { background: linear-gradient(135deg, var(--gold), #b8860b); }
+  .project-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; color: var(--text-dark);
+    line-height: 1.3;
+  }
+  .project-type {
+    font-size: 0.75rem; color: var(--teal);
+    font-weight: 600; letter-spacing: 0.5px; margin-top: 3px;
+  }
+  .project-body { padding: 1.25rem 1.75rem 1.75rem; flex: 1; }
+  .project-body p { color: var(--text-mid); font-size: 0.88rem; line-height: 1.75; }
+  .project-points { margin: 1rem 0; padding-left: 1rem; }
+  .project-points li {
+    color: var(--text-mid); font-size: 0.85rem;
+    line-height: 1.7; margin-bottom: 0.3rem;
+  }
+  .project-tools { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+  .tool-tag {
+    background: var(--cream); color: var(--teal);
+    padding: 4px 10px; border-radius: 5px;
+    font-size: 0.78rem; font-weight: 600;
+    border: 1px solid rgba(13,148,136,0.2);
+  }
+
+  /* ── CERTIFICATIONS ── */
+  .certs-row {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem; margin-top: 3rem;
+  }
+  .cert-item {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px; padding: 1.25rem;
+    display: flex; gap: 1rem; align-items: flex-start;
+    transition: border-color 0.2s;
+  }
+  .cert-item:hover { border-color: rgba(212,168,67,0.4); }
+  .cert-check {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: rgba(212,168,67,0.15);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold); font-size: 1rem; flex-shrink: 0;
+  }
+  .cert-item h4 { font-size: 0.88rem; color: var(--white); font-weight: 600; }
+  .cert-item p { font-size: 0.78rem; color: rgba(255,255,255,0.45); margin-top: 2px; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--white); }
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start;
+  }
+  .contact-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; margin-bottom: 1rem;
+  }
+  .contact-info p { color: var(--text-mid); line-height: 1.8; font-size: 0.93rem; }
+  .contact-info .telugu { color: var(--text-light); font-size: 0.85rem; margin-top: 0.5rem; }
+  .contact-links { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem; }
+  .contact-link {
+    display: flex; align-items: center; gap: 0.75rem;
+    color: var(--text-mid); text-decoration: none; font-size: 0.9rem;
+    transition: color 0.2s;
+  }
+  .contact-link:hover { color: var(--teal); }
+  .contact-link-icon {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: var(--cream); display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+  }
+  .contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label {
+    font-size: 0.82rem; font-weight: 600;
+    color: var(--text-dark); letter-spacing: 0.3px;
+  }
+  .form-group input, .form-group textarea {
+    border: 1.5px solid var(--cream-dark); border-radius: 8px;
+    padding: 12px 14px; font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem; color: var(--text-dark);
+    background: var(--cream); transition: border-color 0.2s;
+    outline: none; resize: vertical;
+  }
+  .form-group input:focus, .form-group textarea:focus {
+    border-color: var(--teal);
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .github-link {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    margin-top: 1rem;
+    color: var(--teal); font-size: 0.85rem; font-weight: 600;
+    text-decoration: none;
+    border: 1.5px solid rgba(13,148,136,0.3);
+    padding: 6px 14px; border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .github-link:hover { background: var(--teal); color: white; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy); color: rgba(255,255,255,0.4);
+    text-align: center; padding: 2rem 8%;
+    font-size: 0.82rem;
+  }
+  footer span { color: var(--teal-light); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; text-align: center; }
+    .hero-bio { max-width: 100%; }
+    .hero-btns { justify-content: center; }
+    .hero-visual { margin-top: 2rem; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .form-row { grid-template-columns: 1fr; }
+    nav { padding: 0 4%; }
+    section { padding: 70px 5%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Charishma <span>S.</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://www.linkedin.com/in/charishma-saragadam-5450b0266" target="_blank">LinkedIn</a></li>
+    <li><a href="https://github.com/Charishma003" target="_blank">GitHub</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">Data Analyst Portfolio</div>
+    <h1 class="hero-name" style="color:var(--white);">Charishma Saragadam</h1>
+    <p class="hero-title">Aspiring Data Analyst · Python · SQL · Power BI</p>
+    <p class="hero-bio">
+      B.Tech ECE graduate passionate about turning raw data into meaningful business insights. Experienced in end-to-end analytics — from data cleaning to interactive dashboards.
+
+    </p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="#contact" class="btn-outline">Contact Me</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card">
+      <div class="hero-card-stat">
+        <div class="stat-icon">📊</div>
+        <div class="stat-info">
+          <div class="stat-num">3,900+</div>
+          <div class="stat-label">Customer Records Analyzed</div>
+        </div>
+      </div>
+      <div class="hero-card-stat">
+        <div class="stat-icon">🛒</div>
+        <div class="stat-info">
+          <div class="stat-num">2,000+</div>
+          <div class="stat-label">Retail Sales Records</div>
+        </div>
+      </div>
+      <div class="hero-card-stat">
+        <div class="stat-icon">📈</div>
+        <div class="stat-info">
+          <div class="stat-num">4+</div>
+          <div class="stat-label">End-to-End Projects</div>
+        </div>
+      </div>
+      <div class="hero-card-stat">
+        <div class="stat-icon">🎓</div>
+        <div class="stat-info">
+          <div class="stat-num">8.4 CGPA</div>
+          <div class="stat-label">B.Tech ECE — Vignan's</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header">
+    <div class="section-tag">About Me</div>
+    <h2 class="section-title">Who Am I?</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      <h3>From Electronics to Data</h3>
+      <p>
+        I'm Charishma Saragadam, a B.Tech ECE graduate from Vignan's Institute of Engineering for Women, Visakhapatnam. My journey into Data Analytics began during my engineering years when I discovered a deep passion for working with data — finding patterns, asking questions, and building visual stories from numbers.
+      </p>
+      <p>
+        I have hands-on experience with Python, SQL, Power BI, and Excel, and have completed real-world analytics projects involving customer behavior analysis and retail sales insights. I've also completed certifications from Digital Edify and Tata (Forage) in Data Analytics and GenAI-powered analytics.
+      </p>
+
+    </div>
+    <div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:1.5rem;color:var(--text-dark)">Education</h3>
+      <div class="edu-timeline">
+        <div class="edu-item">
+          <div class="edu-dot"></div>
+          <div class="edu-info">
+            <h4>B.Tech — Electronics & Communication Engineering</h4>
+            <p>Vignan's Institute of Engineering for Women · 2021–2025</p>
+            <span class="edu-badge">CGPA: 8.4</span>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-dot"></div>
+          <div class="edu-info">
+            <h4>Intermediate (MPC)</h4>
+            <p>Sri Chaitanya Junior College · 2019–2021</p>
+            <span class="edu-badge">96.9%</span>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-dot"></div>
+          <div class="edu-info">
+            <h4>SSC (10th Class)</h4>
+            <p>Sree Vignan Public School · 2018–2019</p>
+            <span class="edu-badge">9.8 CGPA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header">
+    <div class="section-tag" style="color:var(--teal-light)">Skills</div>
+    <h2 class="section-title light">Technical Expertise</h2>
+    <p class="section-sub light">Tools and technologies I work with</p>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-card-icon">📊</div>
+      <h4>Business Intelligence</h4>
+      <div class="skill-tags">
+        <span class="skill-tag">Power BI Desktop</span>
+        <span class="skill-tag">Power BI Service</span>
+        <span class="skill-tag">Data Visualization</span>
+        <span class="skill-tag">Data Storytelling</span>
+        <span class="skill-tag">DAX</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon">🔍</div>
+      <h4>Data Analytics</h4>
+      <div class="skill-tags">
+        <span class="skill-tag">Data Cleaning</span>
+        <span class="skill-tag">EDA</span>
+        <span class="skill-tag">Data Modelling</span>
+        <span class="skill-tag">Business Statistics</span>
+        <span class="skill-tag">Power Query</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon">🗄️</div>
+      <h4>Database & Querying</h4>
+      <div class="skill-tags">
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">MySQL</span>
+        <span class="skill-tag">SQL Server</span>
+        <span class="skill-tag">AWS Basics</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon">🐍</div>
+      <h4>Programming</h4>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Pandas</span>
+        <span class="skill-tag">NumPy</span>
+        <span class="skill-tag">Scikit-learn</span>
+        <span class="skill-tag">C Programming</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon">💼</div>
+      <h4>Productivity Tools</h4>
+      <div class="skill-tags">
+        <span class="skill-tag">Microsoft Excel</span>
+        <span class="skill-tag">Arduino IDE</span>
+        <span class="skill-tag">MATLAB</span>
+        <span class="skill-tag">Xilinx</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon">🤝</div>
+      <h4>Soft Skills</h4>
+      <div class="skill-tags">
+        <span class="skill-tag">Problem Solving</span>
+        <span class="skill-tag">Communication</span>
+        <span class="skill-tag">Team Collaboration</span>
+        <span class="skill-tag">Adaptability</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Certifications inside skills section -->
+  <div style="margin-top:4rem;">
+    <div class="section-header" style="margin-bottom:0">
+      <div class="section-tag" style="color:var(--gold)">Certifications</div>
+      <h2 class="section-title light">Credentials & Achievements</h2>
+    </div>
+    <div class="certs-row">
+      <div class="cert-item">
+        <div class="cert-check">🏅</div>
+        <div>
+          <h4>Data Analysis Certification</h4>
+          <p>Digital Edify · 2025</p>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-check">🏅</div>
+        <div>
+          <h4>GenAI Powered Data Analytics Job Simulation</h4>
+          <p>Tata — Forage · 2025</p>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-check">🏅</div>
+        <div>
+          <h4>C Programming Certification</h4>
+          <p>DATAPRO</p>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-check">🏆</div>
+        <div>
+          <h4>Runner-up — CircuitX Technical Competition</h4>
+          <p>Achievement · Academic Year</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header">
+    <div class="section-tag">Projects</div>
+    <h2 class="section-title">Featured Work</h2>
+    <p class="section-sub">End-to-end data analytics projects</p>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon" style="background:linear-gradient(135deg,#D4A017,#8B1A1A)">🪔</div>
+        <div>
+          <div class="project-title">Diwali Sales Analysis</div>
+          <div class="project-type">EDA · Consumer Behavior · Python</div>
+        </div>
+      </div>
+      <div class="project-body">
+        <p>Performed end-to-end exploratory data analysis on 11,239 Diwali sales records to uncover consumer behavior patterns, top-spending segments, and revenue drivers.</p>
+        <ul class="project-points">
+          <li>Cleaned dataset — dropped 2 irrelevant columns & 12 null rows; converted Amount to int64</li>
+          <li>Female buyers (70%) generated ₹7.43 Cr vs ₹3.19 Cr by males — key gender insight</li>
+          <li>26–35 age group topped with 4,541 buyers & ₹4.26 Cr; UP, MH & KA led all states</li>
+          <li>Food category drove 32% of total ₹10.6 Cr revenue; IT Sector was #1 by occupation spend</li>
+        </ul>
+        <div class="project-tools">
+          <span class="tool-tag">Python</span>
+          <span class="tool-tag">Pandas</span>
+          <span class="tool-tag">Matplotlib</span>
+          <span class="tool-tag">Seaborn</span>
+          <span class="tool-tag">EDA</span>
+        </div>
+        <a href="https://github.com/Charishma003/Diwali_Sales_Analysis" target="_blank" class="github-link">
+          <span>⭐</span> View on GitHub
+        </a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">🛍️</div>
+        <div>
+          <div class="project-title">Customer Shopping Behavior Analysis</div>
+          <div class="project-type">Data Analytics · Power BI · SQL</div>
+        </div>
+      </div>
+      <div class="project-body">
+        <p>Analyzed 3,900+ customer records to uncover purchasing patterns and segment customers by behavior, enabling targeted business strategies.</p>
+        <ul class="project-points">
+          <li>Cleaned and analyzed 3,900+ records, identifying top categories driving 60%+ revenue</li>
+          <li>Built customer segmentation revealing distinct buying patterns across age groups</li>
+          <li>Executed 10+ SQL queries uncovering seasonal revenue spikes</li>
+          <li>Built interactive Power BI dashboard with drill-down filters</li>
+        </ul>
+        <div class="project-tools">
+          <span class="tool-tag">Python</span>
+          <span class="tool-tag">SQL</span>
+          <span class="tool-tag">Power BI</span>
+          <span class="tool-tag">Excel</span>
+        </div>
+        <a href="https://github.com/Charishma003" target="_blank" class="github-link">
+          <span>⭐</span> View on GitHub
+        </a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon gold">🏪</div>
+        <div>
+          <div class="project-title">Retail Sales Analysis</div>
+          <div class="project-type">Sales Analytics · KPI Dashboard</div>
+        </div>
+      </div>
+      <div class="project-body">
+        <p>Analyzed 2,000+ retail sales records to identify revenue trends, top-performing categories, and key business KPIs.</p>
+        <ul class="project-points">
+          <li>Identified top-performing product categories contributing to peak revenue months</li>
+          <li>Calculated KPIs: Total Revenue, Avg Monthly Sales, Month-on-Month Growth</li>
+          <li>Used Python (Pandas) for data cleaning — handled 15%+ missing values</li>
+          <li>Developed Power BI dashboard enabling category-level and time-based analysis</li>
+        </ul>
+        <div class="project-tools">
+          <span class="tool-tag">Python</span>
+          <span class="tool-tag">SQL</span>
+          <span class="tool-tag">Power BI</span>
+          <span class="tool-tag">Excel</span>
+        </div>
+        <a href="https://github.com/Charishma003" target="_blank" class="github-link">
+          <span>⭐</span> View on GitHub
+        </a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon" style="background:linear-gradient(135deg,#7c3aed,#1e1b4b)">🚗</div>
+        <div>
+          <div class="project-title">Driver Safety Monitoring System</div>
+          <div class="project-type">Embedded Systems · IoT</div>
+        </div>
+      </div>
+      <div class="project-body">
+        <p>Developed a sensor-based driver health and drowsiness monitoring system using Arduino to improve road safety.</p>
+        <ul class="project-points">
+          <li>Integrated Eye Blinking & Heartbeat sensors for real-time health tracking</li>
+          <li>Monitored pulse, temperature, and fatigue levels continuously</li>
+          <li>Generated real-time alerts via buzzer to prevent accidents</li>
+        </ul>
+        <div class="project-tools">
+          <span class="tool-tag">Arduino IDE</span>
+          <span class="tool-tag">Sensors</span>
+          <span class="tool-tag">C++</span>
+        </div>
+        <a href="https://github.com/Charishma003" target="_blank" class="github-link">
+          <span>⭐</span> View on GitHub
+        </a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon" style="background:linear-gradient(135deg,#059669,#064e3b)">🧠</div>
+        <div>
+          <div class="project-title">Emotion Recognition from ECG & GSR Signals</div>
+          <div class="project-type">Machine Learning · Signal Processing</div>
+        </div>
+      </div>
+      <div class="project-body">
+        <p>Built a BiLSTM-based system to detect human emotions from physiological signals for real-world health applications.</p>
+        <ul class="project-points">
+          <li>Performed signal cleaning and pre-processing on ECG and GSR data</li>
+          <li>Extracted features for emotion classification using BiLSTM architecture</li>
+          <li>Achieved real-time emotion classification for practical applications</li>
+        </ul>
+        <div class="project-tools">
+          <span class="tool-tag">Python</span>
+          <span class="tool-tag">BiLSTM</span>
+          <span class="tool-tag">Signal Processing</span>
+        </div>
+        <a href="https://github.com/Charishma003" target="_blank" class="github-link">
+          <span>⭐</span> View on GitHub
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header">
+    <div class="section-tag">Contact</div>
+    <h2 class="section-title">Get In Touch</h2>
+    <p class="section-sub">Open to Data Analyst opportunities · Visakhapatnam / Hyderabad</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h3>Let's Connect!</h3>
+      <p>
+        I'm actively looking for entry-level Data Analyst roles. If you have an opportunity, a project, or just want to talk data — feel free to reach out!
+      </p>
+
+      <div class="contact-links">
+        <a id="email-link" href="#" class="contact-link">
+          <div class="contact-link-icon">📧</div>
+          <span id="email-display" style="color:var(--text-dark);font-weight:500;user-select:all;"></span>
+        </a>
+        <a href="tel:+919989281832" class="contact-link">
+          <div class="contact-link-icon">📱</div>
+          +91 9989281832
+        </a>
+        <a href="https://www.linkedin.com/in/charishma-saragadam-5450b0266" target="_blank" class="contact-link">
+          <div class="contact-link-icon">💼</div>
+          linkedin.com/in/charishma-saragadam-5450b0266
+        </a>
+        <a href="https://github.com/Charishma003" target="_blank" class="contact-link">
+          <div class="contact-link-icon">💻</div>
+          github.com/Charishma003
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" placeholder="John Doe"/>
+          </div>
+          <div class="form-group">
+            <label>Your Email</label>
+            <input type="email" placeholder="john@company.com"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <input type="text" placeholder="Job Opportunity / Collaboration"/>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea rows="5" placeholder="Hi Charishma, I'd like to discuss..."></textarea>
+        </div>
+        <button onclick="alert('Thank you for reaching out! Charishma will get back to you soon. 😊')" class="btn-primary" style="width:100%;padding:14px;border:none;cursor:pointer;font-size:1rem;">
+          Send Message ✉️
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const u = 'saragadamcharishma';
+  const d = 'gmail.com';
+  const email = u + '@' + d;
+  const el = document.getElementById('email-display');
+  const link = document.getElementById('email-link');
+  if (el) el.textContent = email;
+  if (link) link.href = 'mailto:' + email;
+</script>
+
+<!-- FOOTER -->
+<footer>
+  <p>Designed & Built by <span>Charishma Saragadam</span> · Data Analyst · V
